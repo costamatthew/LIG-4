@@ -46,21 +46,40 @@ colunas.forEach(function (colfor) {
             playerTurn(turn)
         }
 
-        //condição de vitória
+        function array (arr){
+            let aux = [] 
+            for(let i = 0; i < arr.length; i++) {
+                if (arr[i] == undefined){
+                    aux.push('x')
+                }
+                else
+                    aux.push(arr[i])
+            }
+            return aux
+        }
 
-        let hJoin = horizontal[limit].join('')
-        let dJoin = diagonal[parseInt(id)+parseInt(limit)].join('')
-        let d2Join = diagonal2[6-parseInt(id)+parseInt(limit)].join('')
+        // console.log(haux)
+
+        let hJoin = array(horizontal[limit]).join('')
+        let dJoin = array(diagonal[parseInt(id)+parseInt(limit)]).join('')
+        let d2Join = array(diagonal2[6-parseInt(id)+parseInt(limit)]).join('')
 
         if (vertical[id].includes('yyyy') || hJoin.includes('yyyy') || dJoin.includes('yyyy') || d2Join.includes('yyyy')) {
             body.innerText = 'COR AMARELA VENCEU!!!'
-            win()
         }
     
         else if(vertical[id].includes('bbbb') || hJoin.includes('bbbb') || dJoin.includes('bbbb') || d2Join.includes('bbbb')) {
             body.innerText = 'COR AZUL VENCEU!!!'
-            win()
         }
+
+        let cont = 0
+        colunas.forEach( function (element){
+            if(element.children.length == 6)
+                cont ++
+        })
+        if(cont == 7)
+         body.innerText = 'Empate!!!'
+
     })
 })
 
