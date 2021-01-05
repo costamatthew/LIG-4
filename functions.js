@@ -3,7 +3,7 @@ const colunas = document.querySelectorAll(".tabuleiro_coluna");
 let keep;
 let turn = 1;
 
-colunas.forEach(colfor => {
+colunas.forEach(function (colfor) {
     colfor.addEventListener("click", (e) => {
 
         let limit = e.currentTarget.children.length
@@ -29,7 +29,7 @@ colunas.forEach(colfor => {
     })
 })
 
-const playerTurn = (e) => {
+function playerTurn(e) {
     if (e === 1) {
 
         turn = 2;
@@ -38,7 +38,7 @@ const playerTurn = (e) => {
     } 
 }
 
-const disco_1 = () => {
+function disco_1() {
     let d1 = document.createElement("div");
     d1.setAttribute("id", "disco1");
     d1.style.backgroundColor = "#000";
@@ -50,7 +50,7 @@ const disco_1 = () => {
     return d1;
 }
 
-const disco_2 = () => {
+function disco_2() {
     let d2 = document.createElement("div");
     d2.setAttribute("id", "disco2");
     d2.style.backgroundColor = "#F30303";
