@@ -45,6 +45,22 @@ colunas.forEach(function (colfor) {
 
             playerTurn(turn)
         }
+
+        //condição de vitória
+
+        let hJoin = horizontal[limit].join('')
+        let dJoin = diagonal[parseInt(id)+parseInt(limit)].join('')
+        let d2Join = diagonal2[6-parseInt(id)+parseInt(limit)].join('')
+
+        if (vertical[id].includes('yyyy') || hJoin.includes('yyyy') || dJoin.includes('yyyy') || d2Join.includes('yyyy')) {
+            body.innerText = 'COR AMARELA VENCEU!!!'
+            win()
+        }
+    
+        else if(vertical[id].includes('bbbb') || hJoin.includes('bbbb') || dJoin.includes('bbbb') || d2Join.includes('bbbb')) {
+            body.innerText = 'COR AZUL VENCEU!!!'
+            win()
+        }
     })
 })
 
