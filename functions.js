@@ -5,22 +5,27 @@ let turn = 1;
 
 colunas.forEach(colfor => {
     colfor.addEventListener("click", (e) => {
-        if (turn === 1) {
-            let event = e.target.id;
-            keep = document.getElementById(event);
-            keep.appendChild(disco_1());
-            //console.log(keep)
-        }
 
-        if (turn === 2) {
-            let event = e.target.id;
-            keep = document.getElementById(event);
-            keep.appendChild(disco_2());
-            //console.log(keep)
-        }
+        let limit = e.currentTarget.children.length
+        
+        if (limit < 6) {
+            if (turn === 1) {
+                let event = e.target.id;
+                keep = document.getElementById(event);
+                keep.appendChild(disco_1());
+                //console.log(keep)
+            }
+    
+            if (turn === 2) {
+                let event = e.target.id;
+                keep = document.getElementById(event);
+                keep.appendChild(disco_2());
+                //console.log(keep)
+            }
 
-        playerTurn(turn);
-        console.log(turn);
+            playerTurn(turn);
+            console.log(turn);
+        }
     })
 })
 
