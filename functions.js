@@ -4,7 +4,7 @@ let keep;
 let turn = 1;
 
 colunas.forEach(function (colfor) {
-    colfor.addEventListener("click", (e) => {
+    colfor.addEventListener("click", function(e) {
 
         let limit = e.currentTarget.children.length
         
