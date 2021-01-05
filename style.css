@@ -1,0 +1,18 @@
+.tabuleiro{
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 670px;
+    height: 80vh;
+    display: flex;
+}
+
+.tabuleiro_coluna{
+    max-width: 150px;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column-reverse;
+    border: 1px solid #000;
+}
