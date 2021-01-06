@@ -7,8 +7,23 @@ const horizontal = [[''],[''],[''],[''],[''],[''],['']]
 const diagonal = [[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]
 const diagonal2 = [[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]
 
+const vAuxY = [[],[],[],[],[],[],[]]
+const hAuxY = [[],[],[],[],[],[],[]]
+const d1AuxY = [[],[],[],[],[],[],[],[],[],[],[],[]]
+const d2AuxY = [[],[],[],[],[],[],[],[],[],[],[],[]]
+
+const vAuxB = [[],[],[],[],[],[],[]]
+const hAuxB = [[],[],[],[],[],[],[]]
+const d1AuxB = [[],[],[],[],[],[],[],[],[],[],[],[]]
+const d2AuxB = [[],[],[],[],[],[],[],[],[],[],[],[]]
+
+
 let keep;
 let turn = 1;
+let c = 8
+body.onclick = function(){
+    c+=1
+}
 
 colunas.forEach(function (colfor) {
 
@@ -17,20 +32,38 @@ colunas.forEach(function (colfor) {
         const collumn = e.currentTarget
         const id = collumn.id
         const limit = e.currentTarget.children.length
+
+        body.onclick(c++)
         
         function Gerardisco(string) {
             let d1 = document.createElement("div");
-            d1.setAttribute("id", string);
+            d1.setAttribute("id", c);
             d1.style.backgroundColor = string
             d1.style.width = "80%";
             d1.style.height = "10%";
             d1.style.borderRadius = "40%";
             d1.style.padding = "10px";
             d1.style.margin = "10px";
+
             vertical[id] += string[0]
             horizontal[parseInt(limit)][id] = string[0]
             diagonal[parseInt(id)+parseInt(limit)][id] = string[0]
             diagonal2[6-parseInt(id)+parseInt(limit)][id] = string[0]
+
+            if(string == 'yellow') {
+                vAuxY[id].push(d1.id)
+                hAuxY[limit].push(d1.id)
+                d1AuxY[parseInt(id)+parseInt(limit)].push(d1.id)
+                d2AuxY[6-parseInt(id)+parseInt(limit)].push(d1.id)
+            }
+            else {
+                vAuxB[id].push(d1.id)
+                hAuxB[limit].push(d1.id)
+                d1AuxB[parseInt(id)+parseInt(limit)].push(d1.id)
+                d2AuxB[6-parseInt(id)+parseInt(limit)].push(d1.id)
+            }
+
+
             return d1;
         }
 
@@ -58,18 +91,50 @@ colunas.forEach(function (colfor) {
             return aux
         }
 
-        // console.log(haux)
-
         let hJoin = array(horizontal[limit]).join('')
         let dJoin = array(diagonal[parseInt(id)+parseInt(limit)]).join('')
         let d2Join = array(diagonal2[6-parseInt(id)+parseInt(limit)]).join('')
 
-        if (vertical[id].includes('yyyy') || hJoin.includes('yyyy') || dJoin.includes('yyyy') || d2Join.includes('yyyy')) {
-            body.innerText = 'COR AMARELA VENCEU!!!'
+        if (vertical[id].includes('yyyy')) {
+            vAuxY[id].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
+        }
+        else if (hJoin.includes('yyyy')) {
+            hAuxY[limit].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
+        }
+        else if (dJoin.includes('yyyy')) {
+            d1AuxY[parseInt(id)+parseInt(limit)].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            }) 
+        }
+        else if (d2Join.includes('yyyy')) {
+            d2AuxY[6-parseInt(id)+parseInt(limit)].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
         }
     
-        else if(vertical[id].includes('bbbb') || hJoin.includes('bbbb') || dJoin.includes('bbbb') || d2Join.includes('bbbb')) {
-            body.innerText = 'COR AZUL VENCEU!!!'
+        else if(vertical[id].includes('bbbb')) {
+            vAuxB[id].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
+        }
+        else if(hJoin.includes('bbbb')) {
+            hAuxB[limit].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
+        }
+        else if(dJoin.includes('bbbb')) {
+            d1AuxB[parseInt(id)+parseInt(limit)].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            }) 
+        }
+        else if(d2Join.includes('bbbb')) {
+            d2AuxB[6-parseInt(id)+parseInt(limit)].forEach(function(element){
+                document.getElementById(element).style.background = 'green'
+            })
         }
 
         let cont = 0
