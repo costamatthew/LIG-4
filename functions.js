@@ -3,8 +3,8 @@ const painel = document.getElementById('painel')
 const colunas = document.querySelectorAll(".tabuleiro_coluna");
 
 const vertical = ['','','','','','']
-const horizontal = [[''],[''],[''],[''],[''],[''],['']]
-const diagonal = [[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]
+const horizontal = [[],[],[],[],[],[],[]]
+const diagonal = [[],[],[],[],[],[],[],[],[],[],[],[]]
 const diagonal2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
 const vAux = [[],[],[],[],[],[],[]]
@@ -89,9 +89,11 @@ colunas.forEach(function (colfor) {
             })
         }
         else if (hJoin.includes('yyyy')) {
+            console.log(hJoin)
+            console.log(hAux[limit])
             let inicio = hJoin.indexOf('yyyy')
             hAux[limit].forEach(function(element,index){
-                if(index>=inicio && index < inicio+4)
+                if(index>=inicio && index < inicio + 4)
                 document.getElementById(element).style.background = 'green'
             })
         }
@@ -103,6 +105,7 @@ colunas.forEach(function (colfor) {
             }) 
         }
         else if (d2Join.includes('yyyy')) {
+            let inicio = d2Join.indexOf('yyyy')
             d2Aux[6-parseInt(id)+parseInt(limit)].forEach(function(element,index){
                 if(index>=inicio && index < inicio + 4)
                 document.getElementById(element).style.background = 'green'
