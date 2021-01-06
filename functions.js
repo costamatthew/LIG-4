@@ -5,18 +5,12 @@ const colunas = document.querySelectorAll(".tabuleiro_coluna");
 const vertical = ['','','','','','']
 const horizontal = [[''],[''],[''],[''],[''],[''],['']]
 const diagonal = [[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]
-const diagonal2 = [[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]
+const diagonal2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
-const vAuxY = [[],[],[],[],[],[],[]]
-const hAuxY = [[],[],[],[],[],[],[]]
-const d1AuxY = [[],[],[],[],[],[],[],[],[],[],[],[]]
-const d2AuxY = [[],[],[],[],[],[],[],[],[],[],[],[]]
-
-const vAuxB = [[],[],[],[],[],[],[]]
-const hAuxB = [[],[],[],[],[],[],[]]
-const d1AuxB = [[],[],[],[],[],[],[],[],[],[],[],[]]
-const d2AuxB = [[],[],[],[],[],[],[],[],[],[],[],[]]
-
+const vAux = [[],[],[],[],[],[],[]]
+const hAux = [[],[],[],[],[],[],[]]
+const d1Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
+const d2Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
 let keep;
 let turn = 1;
@@ -50,19 +44,10 @@ colunas.forEach(function (colfor) {
             diagonal[parseInt(id)+parseInt(limit)][id] = string[0]
             diagonal2[6-parseInt(id)+parseInt(limit)][id] = string[0]
 
-            if(string == 'yellow') {
-                vAuxY[id].push(d1.id)
-                hAuxY[limit].push(d1.id)
-                d1AuxY[parseInt(id)+parseInt(limit)].push(d1.id)
-                d2AuxY[6-parseInt(id)+parseInt(limit)].push(d1.id)
-            }
-            else {
-                vAuxB[id].push(d1.id)
-                hAuxB[limit].push(d1.id)
-                d1AuxB[parseInt(id)+parseInt(limit)].push(d1.id)
-                d2AuxB[6-parseInt(id)+parseInt(limit)].push(d1.id)
-            }
-
+            vAux[id].push(d1.id)
+            hAux[limit][id] = d1.id
+            d1Aux[parseInt(id)+parseInt(limit)][id] = d1.id
+            d2Aux[6-parseInt(id)+parseInt(limit)][id] = d1.id
 
             return d1;
         }
@@ -91,48 +76,64 @@ colunas.forEach(function (colfor) {
             return aux
         }
 
+
         let hJoin = array(horizontal[limit]).join('')
         let dJoin = array(diagonal[parseInt(id)+parseInt(limit)]).join('')
         let d2Join = array(diagonal2[6-parseInt(id)+parseInt(limit)]).join('')
 
         if (vertical[id].includes('yyyy')) {
-            vAuxY[id].forEach(function(element){
+            let inicio = vertical[id].indexOf('yyyy')
+            vAux[id].forEach(function(element,index){
+                if(index>=inicio)
                 document.getElementById(element).style.background = 'green'
             })
         }
         else if (hJoin.includes('yyyy')) {
-            hAuxY[limit].forEach(function(element){
+            let inicio = hJoin.indexOf('yyyy')
+            hAux[limit].forEach(function(element,index){
+                if(index>=inicio && index < inicio+4)
                 document.getElementById(element).style.background = 'green'
             })
         }
         else if (dJoin.includes('yyyy')) {
-            d1AuxY[parseInt(id)+parseInt(limit)].forEach(function(element){
+            let inicio = dJoin.indexOf('yyyy')
+            d1Aux[parseInt(id)+parseInt(limit)].forEach(function(element,index){
+                if(index>=inicio && index < inicio+4)
                 document.getElementById(element).style.background = 'green'
             }) 
         }
         else if (d2Join.includes('yyyy')) {
-            d2AuxY[6-parseInt(id)+parseInt(limit)].forEach(function(element){
+            d2Aux[6-parseInt(id)+parseInt(limit)].forEach(function(element,index){
+                if(index>=inicio && index < inicio + 4)
                 document.getElementById(element).style.background = 'green'
             })
         }
     
         else if(vertical[id].includes('bbbb')) {
-            vAuxB[id].forEach(function(element){
+            let inicio = vertical[id].indexOf('bbbb')
+            vAux[id].forEach(function(element,index){
+                if(index>=inicio)
                 document.getElementById(element).style.background = 'green'
             })
         }
         else if(hJoin.includes('bbbb')) {
-            hAuxB[limit].forEach(function(element){
+            let inicio = hJoin.indexOf('bbbb')
+            hAux[limit].forEach(function(element,index){
+                if(index>=inicio && index < inicio+4)
                 document.getElementById(element).style.background = 'green'
             })
         }
         else if(dJoin.includes('bbbb')) {
-            d1AuxB[parseInt(id)+parseInt(limit)].forEach(function(element){
+            let inicio = dJoin.indexOf('bbbb')
+            d1Aux[parseInt(id)+parseInt(limit)].forEach(function(element,index){
+                if(index>=inicio && index < inicio+4)
                 document.getElementById(element).style.background = 'green'
             }) 
         }
         else if(d2Join.includes('bbbb')) {
-            d2AuxB[6-parseInt(id)+parseInt(limit)].forEach(function(element){
+            let inicio = d2Join.indexOf('bbbb')
+            d2Aux[6-parseInt(id)+parseInt(limit)].forEach(function(element,index){
+                if(index>=inicio && index < inicio+4)
                 document.getElementById(element).style.background = 'green'
             })
         }
