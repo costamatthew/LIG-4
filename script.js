@@ -4,15 +4,15 @@ const colunas = document.querySelectorAll(".tabuleiro_coluna");
 const result = document.getElementById("result-mensagem");
 const button = document.getElementById('div_restet')
 
-const vertical = ['','','','','','']
-const horizontal = [[],[],[],[],[],[],[]]
-const diagonal = [[],[],[],[],[],[],[],[],[],[],[],[]]
-const diagonal2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
+let vertical = ['','','','','','']
+let horizontal = [[],[],[],[],[],[],[]]
+let diagonal = [[],[],[],[],[],[],[],[],[],[],[],[]]
+let diagonal2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
-const vAux = [[],[],[],[],[],[],[]]
-const hAux = [[],[],[],[],[],[],[]]
-const d1Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
-const d2Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
+let vAux = [[],[],[],[],[],[],[]]
+let hAux = [[],[],[],[],[],[],[]]
+let d1Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
+let d2Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
 let keep;
 let turn = 1;
@@ -23,16 +23,13 @@ let play = false;
 body.onclick = function(){
     c+=1
 }
-button.onclick = function () {
-    colunas.forEach(function(element) {
-        element.innerHTML = ''
-    })
-}
+
 
 colunas.forEach(function (colfor) {
 
     colfor.addEventListener("click", function(e) {
 
+        console.log(play)
         if (play === false) {
             const collumn = e.currentTarget
             const id = collumn.id

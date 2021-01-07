@@ -18,7 +18,6 @@ function Gerardisco(string,id,limit) {
 }
 
 
-
 function verificaVitoria (limit,id) {
     function array (arr){
         let aux = [] 
@@ -148,4 +147,23 @@ function discoWin (element) {
 
 function winText (element) {
     result.innerHTML = `${element}`
+}
+
+button.onclick = function () {
+    colunas.forEach(function(element) {
+        element.innerHTML = '' 
+    })
+
+    vertical = ['','','','','','']
+    horizontal = [[],[],[],[],[],[],[]]
+    diagonal = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    diagonal2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    
+    vAux = [[],[],[],[],[],[],[]]
+    hAux = [[],[],[],[],[],[],[]]
+    d1Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    d2Aux = [[],[],[],[],[],[],[],[],[],[],[],[]]
+
+    result.innerHTML = 'Click para Começar'
+    play = false
 }
