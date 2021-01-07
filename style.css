@@ -3,41 +3,53 @@
     text-transform: uppercase;
     color: #00ff00;
     outline: none;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #000;
+    background-image:url(img/matrix2.gif);
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #title {
     text-align: center;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin: 20px 0;
 }
 
 .tabuleiro{
     margin: 0 auto;
-    margin-top: 10px;
-    max-width: 670px;
-    height: 60vh;
+    margin-top: 0px;
+    width: 280px;
+    height: 300px;
     display: flex;
 }
 
 .tabuleiro_coluna{
-    max-width: 150px;
+    width: 150px;
     width: 100%;
-    height: 90%;
+    height: 100%;
     display: flex;
     justify-content: baseline;
     align-items: center;
     flex-direction: column-reverse;
     border: 2px solid #0F0;
+    background:black;
 }
 
 #div_restet {
-    margin: auto;
-    width: 10vw;
-    border: 3px solid green; 
+    margin: 0 auto;
+    width: 100px;
+    border: 3px solid green;
     text-align: center;
 }
 
@@ -51,21 +63,35 @@ body {
 #player-and-result {
     text-align: center;
     font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.yellow, .blue, .input {
+    color: #000;
+    width: 34px;
+    height: 34px;
+    padding: 0px;
+    margin: 1px;
+    font-size: 0.5rem;
+    background-color: #000;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .yellow {
-    color: #000;
-    width: 60px;
-    height: 60px;
-    padding: 0px;
-    margin: 5px;
-    font-size: 1.3rem;
-    background-color: #000;
     border: solid 4px red;
-    overflow: hidden;
     animation: yellow 0.5s 3;
-    word-wrap: break-word;
-    text-align: center;
+}
+
+.blue {
+    border: solid 4px yellow;
+    animation: blue 0.5s 3;
+}
+
+.input {
+    border: solid 4px #00ff00;
+    animation: input 0.5s 5;
 }
 
 @keyframes yellow {
@@ -80,22 +106,6 @@ body {
     }
 }
 
-
-.blue {
-    color: #000;
-    width: 60px;
-    height: 60px;
-    padding: 0px;
-    margin: 5px;
-    font-size: 1.3rem;
-    background-color: #000;
-    border: solid 4px yellow;
-    overflow: hidden;
-    animation: blue 0.5s 3;
-    word-wrap: break-word;
-    text-align: center;
-}
-
 @keyframes blue {
     0% {
         color: #000;
@@ -108,20 +118,6 @@ body {
     }
 }
 
-.input {
-    width: 60px;
-    height: 60px;
-    padding: 0px;
-    margin: 5px;
-    font-size: 1.3rem;
-    color: #00ff00;
-    overflow: hidden;
-    border: solid 4px #00ff00;
-    animation: input 0.5s 5;
-    text-align: center;
-    word-wrap: break-word;
-}
-
 @keyframes input {
     0% {
         color: #000;
@@ -131,5 +127,64 @@ body {
     }
     100% {
         color: #000;
+    }
+}
+
+@media (min-width: 768px) {
+    .yellow, .blue, .input {
+        width: 80px;
+        height: 80px;
+        font-size: 1.35rem;
+    }
+
+    #title {
+        font-size: 3.5rem;
+    }
+
+    .tabuleiro{
+        width: 700px;
+        height: 600px;
+    }
+
+    #player-and-result {
+        font-size: 3.0rem;
+    }
+
+    #div_restet {
+        width: 200px;
+    }
+
+    #reset {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .yellow, .blue, .input {
+        width: 88px;
+        height: 80px;
+        font-size: 1.35rem;
+    }
+
+    #title {
+        font-size: 3rem;
+    }
+
+    .tabuleiro{
+        width: 700px;
+        height: 500px;
+    }
+
+    #player-and-result {
+        font-size:2.5rem;
+        margin: 0;
+    }
+
+    #div_restet {
+        width: 200px;
+    }
+
+    #reset {
+        font-size: 2.5rem;
     }
 }
