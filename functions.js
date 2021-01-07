@@ -1,4 +1,25 @@
-function verificaVitoria () {
+function Gerardisco(string,id,limit) {
+    let disco = document.createElement("div");
+    disco.setAttribute("id", c);
+    disco.setAttribute("class", string);
+    disco.innerHTML = "0101011001010101001010101010101";
+
+    vertical[id] += string[0]
+    horizontal[parseInt(limit)][id] = string[0]
+    diagonal[parseInt(id)+parseInt(limit)][id] = string[0]
+    diagonal2[6-parseInt(id)+parseInt(limit)][id] = string[0]
+
+    vAux[id].push(disco.id)
+    hAux[limit][id] = disco.id
+    d1Aux[parseInt(id)+parseInt(limit)][id] = disco.id
+    d2Aux[6-parseInt(id)+parseInt(limit)][id] = disco.id
+
+    return disco;
+}
+
+
+
+function verificaVitoria (limit,id) {
     function array (arr){
         let aux = [] 
         for(let i = 0; i < arr.length; i++) {
@@ -92,4 +113,39 @@ function verificaVitoria () {
         })
     }
 
+}
+
+function verificaEmpate() {
+    let cont = 0
+    colunas.forEach( function (element){
+        if(element.children.length == 6)
+            cont ++
+    })
+    if(cont == 7)
+    button.onclick()
+}
+
+
+
+function playerTurn(e) {
+    if (e === 1) {
+        result.innerHTML = "Player 2"
+        win = "Player 1, Ganhou!"
+        turn = 2;
+    } else {
+        result.innerHTML = "Player 1"
+        win = "Player 2, Ganhou!"
+        turn = 1;
+    } 
+}
+
+function discoWin (element) {
+    let input = document.getElementById(element);
+    input.setAttribute("class", "input")
+    input.innerHTML = "0101011001010101001010101010101"
+    return input
+}
+
+function winText (element) {
+    result.innerHTML = `${element}`
 }
