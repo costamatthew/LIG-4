@@ -3,6 +3,11 @@ const painel = document.getElementById('painel')
 const colunas = document.querySelectorAll(".tabuleiro_coluna");
 const result = document.getElementById("result-mensagem");
 const button = document.getElementById('div_restet')
+const audio = document.querySelector('audio')
+const som = document.getElementById('som')
+const vitoria = document.getElementById('vitoria')
+
+
 
 let vertical = ['','','','','','']
 let horizontal = [[],[],[],[],[],[],[]]
@@ -25,9 +30,13 @@ body.onclick = function(){
 }
 
 
+
 colunas.forEach(function (colfor) {
 
     colfor.addEventListener("click", function(e) {
+
+        som.play()
+        som.loop = true
         
         if (play === false) {
             const collumn = e.currentTarget
@@ -37,6 +46,8 @@ colunas.forEach(function (colfor) {
             body.onclick(c++)
     
             if (limit < 6) {
+                audio.volume = 0.1
+                audio.play()
                 if (turn === 1) {
                     collumn.appendChild(Gerardisco('yellow',id,limit));
                 }

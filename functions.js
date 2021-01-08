@@ -43,6 +43,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
     else if (hJoin.includes('yyyy')) {
@@ -54,6 +55,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
     else if (dJoin.includes('yyyy')) {
@@ -63,6 +65,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         }) 
     }
     else if (d2Join.includes('yyyy')) {
@@ -72,6 +75,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
 
@@ -82,6 +86,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
     else if(hJoin.includes('bbbb')) {
@@ -91,6 +96,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
     else if(dJoin.includes('bbbb')) {
@@ -100,6 +106,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         }) 
     }
     else if(d2Join.includes('bbbb')) {
@@ -109,6 +116,7 @@ function verificaVitoria (limit,id) {
             discoWin (element)
             winText(win)
             play = true
+            vitoria.play()
         })
     }
 
