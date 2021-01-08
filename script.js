@@ -28,8 +28,7 @@ body.onclick = function(){
 colunas.forEach(function (colfor) {
 
     colfor.addEventListener("click", function(e) {
-
-        console.log(play)
+        
         if (play === false) {
             const collumn = e.currentTarget
             const id = collumn.id

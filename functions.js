@@ -149,7 +149,16 @@ function winText (element) {
     result.innerHTML = `${element}`
 }
 
+button.ontouchstart = function () {
+    button.style.border = "4px solid black";
+}
+
+button.onmousedown = function () {
+    button.style.border = "4px solid black";
+}
+
 button.onclick = function () {
+    button.style.border = "4px solid #0F0"
     colunas.forEach(function(element) {
         element.innerHTML = '' 
     })
