@@ -8,7 +8,6 @@ function Gerardisco(string,id,limit) {
     horizontal[parseInt(limit)][id] = string[0]
     diagonal[parseInt(id)+parseInt(limit)][id] = string[0]
     diagonal2[6-parseInt(id)+parseInt(limit)][id] = string[0]
-
     vAux[id].push(disco.id)
     hAux[limit][id] = disco.id
     d1Aux[parseInt(id)+parseInt(limit)][id] = disco.id
@@ -47,8 +46,6 @@ function verificaVitoria (limit,id) {
         })
     }
     else if (hJoin.includes('yyyy')) {
-        console.log(hJoin)
-        console.log(hAux[limit])
         let inicio = hJoin.indexOf('yyyy')
         hAux[limit].forEach(function(element,index){
             if(index>=inicio && index < inicio + 4)
@@ -128,8 +125,11 @@ function verificaEmpate() {
         if(element.children.length == 6)
             cont ++
     })
-    if(cont == 7)
-    button.onclick()
+    if(cont == 7){
+        winText("EMPATE"); 
+        som.pause();
+        som.currentTime = 0;
+    }
 }
 
 
@@ -147,12 +147,15 @@ function playerTurn(e) {
 }
 
 function discoWin (element) {
-    let input = document.getElementById(element);
-    input.setAttribute("class", "input")
-    input.innerHTML = "0101011001010101001010101010101"
-    input.style.animation ='yellow 0.4s 100'
-    return input
+    if(element != null){
+        let input = document.getElementById(element);
+        input.setAttribute("class", "input")
+        input.innerHTML = "0101011001010101001010101010101"
+        input.style.animation ='yellow 0.4s 100'
+        return input
+    }
 }
+
 
 function winText (element) {
     result.innerHTML = `${element}`
