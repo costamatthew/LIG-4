@@ -150,6 +150,7 @@ function discoWin (element) {
     let input = document.getElementById(element);
     input.setAttribute("class", "input")
     input.innerHTML = "0101011001010101001010101010101"
+    input.style.animation ='yellow 0.4s 100'
     return input
 }
 
